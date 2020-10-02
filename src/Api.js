@@ -142,4 +142,83 @@ export default {
       }
     }
   },
+  addRank: async (u) => {
+    let now = new Date();
+    await db.collection("rank").doc(u.summonerId).set(
+      {
+        name: u.summonerName,
+        leagueId: u.leagueId,
+        leaguePoints: u.leaguePoints,
+        losses: u.losses,
+        queueType: u.queueType,
+        rank: u.rank,
+        region: u.region,
+        summonerId: u.summonerId,
+        summonerName: u.summonerId,
+        tier: u.tier,
+        veteran: u.veteran,
+        wins: u.wins,
+        date: now,
+      },
+      { merge: true }
+    );
+  },
+  getRankList: async() => {
+    let list = [];
+
+    let results = await db.collection("rank").get();
+
+    results.forEach((result) => {
+      let data = result.data();
+      
+        list.push({
+          name: data.name,
+          leagueId: data.leagueId,
+          leaguePoints: data.leaguePoints,
+          losses: data.losses,
+          queueType: data.queueType,
+          rank: data.rank,
+          region: data.region,
+          summonerId: data.summonerId,
+          summonerName: data.summonerName,
+          tier: data.tier,
+          veteran: data.veteran,
+          wins: data.wins,
+          date: data.date,
+        });
+      
+    });
+
+    return list;
+  },
+  onRankList: (setCahtList) => {
+    return db
+      .collection("rank")
+      .doc()
+      .onSnapshot((doc) => {
+        if (doc.exists) {
+          let data = doc.data();
+
+          if (data.rank) {
+            let rank = [...data.rank];
+            rank.sort((a, b) => {
+              if (a.date === undefined) {
+                return -1;
+              }
+              if (b.date === undefined) {
+                return -1;
+              }
+              if (a.date.seconds < b.date.seconds) {
+                return 1;
+              } else {
+                return -1;
+              }
+            });
+
+            setCahtList(data.rank);
+          }
+        }
+      });
+  },
+
 };

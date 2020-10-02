@@ -32,15 +32,12 @@ async function getChampions() {
 }
 
 
-
 const get = async (req, res) => {
   const payload = await getChampions();
   //const payload =  await getRank;
   console.log(payload);
   res.send(payload);
 };
-
-
 
 module.exports = {
   get,

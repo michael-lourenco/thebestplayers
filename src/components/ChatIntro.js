@@ -1,5 +1,9 @@
 import React from "react";
 import "./ChatIntro.css";
+import getRanks from '../ApiRiot';
+
+
+getRanks()
 
 export default () => {
   return (
