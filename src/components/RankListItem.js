@@ -20,11 +20,11 @@ export default ({ onClick, active, data }) => {
       <div className="rankListItem-lines">
         <div className="rankListItem-line">
           <div className="rankListItem-name">{data.name}</div>
-          <div className="rankListItem- date"></div>
+          <div className="rankListItem-date">{data.leaguePoints}</div>
         </div>
         <div className="rankListItem-line">
           <div className="rankListItem-lastMsg">
-            <p></p>
+            <p>{data.tier}</p>
           </div>
         </div>
       </div>

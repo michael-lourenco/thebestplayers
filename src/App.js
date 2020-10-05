@@ -32,7 +32,7 @@ export default () => {
       "https://web.whatsapp.com/img/intro-connection-light_c98cc75f2aa905314d74375a975d2cf2.jpg",
   });
   const [showNewChat, setShowNewChat] = useState(false);
-  const [showNewRank, setShowNewRank] = useState(false);
+  const [showNewRank, setShowNewRank] = useState(true);
 
   useEffect(() => {
     if (user !== null) {
@@ -73,12 +73,7 @@ export default () => {
   return (
     <div className="app-window">
       <div className="sidebar">
-        <NewRank
-          chatList={rankList}
-          user={user}
-          show={showNewRank}
-          setShow={setShowNewRank}
-        />
+
         <header>
           <img className="header-avatar" src={user.avatar} alt="" />
           <div className="header-buttons">
@@ -93,41 +88,19 @@ export default () => {
             </div>
           </div>
         </header>
-        <div className="search">
-          <div className="search-input">
-            <SearchIcon fontSize="small" tyle={{ color: "#919191" }} />
-            <input
-              type="search"
-              placeholder="Procurar ou começar nova conversa"
-            />
-          </div>
-        </div>
-        {/* <div className="chatList">
-          {chatList.map((item, key) => (
-            <ChatListItem
-              key={key}
-              data={item}
-              active={activeChat.chatId === chatList[key].chatId}
-              onClick={() => setActiveChat(chatList[key])}
-            />
-          ))}
-        </div> */}
-        <div className="rankList">
-          {rankList.map((item, key) => (
-            <RankListItem
-              key={key}
-              data={item}
-              active={activeRank.rankId === rankList[key].rankId}
-              onClick={() => setActiveRank(rankList[key])}
-            />
-          ))}
-        </div> 
+
       </div>
       <div className="contentarea">
         {activeChat.chatId !== undefined && (
           <ChatWindow user={user} data={activeChat} />
         )}
         {activeChat.chatId === undefined && <ChatIntro />}
+        <NewRank
+          chatList={rankList}
+          user={user}
+          show={showNewRank}
+          setShow={setShowNewRank}
+        />
       </div>
     </div>
   );

@@ -152,7 +152,7 @@ export default {
         losses: u.losses,
         queueType: u.queueType,
         rank: u.rank,
-        region: u.region,
+        // region: u.region,
         summonerId: u.summonerId,
         summonerName: u.summonerId,
         tier: u.tier,
@@ -178,7 +178,7 @@ export default {
           losses: data.losses,
           queueType: data.queueType,
           rank: data.rank,
-          region: data.region,
+          // region: data.region,
           summonerId: data.summonerId,
           summonerName: data.summonerName,
           tier: data.tier,
@@ -191,7 +191,7 @@ export default {
 
     return list;
   },
-  onRankList: (setCahtList) => {
+  onRankList: (setRankList) => {
     return db
       .collection("rank")
       .doc()
@@ -215,7 +215,7 @@ export default {
               }
             });
 
-            setCahtList(data.rank);
+            setRankList(data.rank);
           }
         }
       });

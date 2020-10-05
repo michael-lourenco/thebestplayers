@@ -2,16 +2,15 @@ import Api from "./Api";
 const fetch = require("node-fetch");
 
 
-const getRanks = async () => {
-  const result = await fetch(
-    `${process.env.REACT_APP_BASE_URL_API_RIOT}/ranks`
-  );
-  const data = await result.json();
-  console.log(data)
-  for(let item of data){
+const updateRanks = async () => {
+  const data = await fetch(`${process.env.REACT_APP_BASE_URL_API_RIOT}/br`);
+  const result = await data.json();
+  console.log('resultado',JSON.stringify(result))
+  for(let item of result){
       Api.addRank(item)
+      console.log(item)
   }
-  return data;
+  return result;
 };
 
-export default getRanks;
+export default updateRanks;

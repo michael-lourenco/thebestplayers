@@ -5,6 +5,8 @@ import Api from "../Api";
 
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
+import imageChallenger from '../Emblem_Challenger.png';
+
 export default ({ ranklist, user, show, setShow }) => {
   const [list, setList] = useState([]);
 
@@ -29,12 +31,12 @@ export default ({ ranklist, user, show, setShow }) => {
   };
 
   return (
-    <div className="new-rank" style={{ left: show ? "0px" : "-415px" }}>
+    <div className="new-rank">
       <div className="new-rank-head">
         <div onClick={handleClose} className="new-rank-backbutton">
           <ArrowBackIcon style={{ color: "#fff" }} />
         </div>
-        <div className="new-rank-headtitle">Nova Conversa</div>
+        <div className="new-rank-headtitle">Ranking</div>
       </div>
       <div className="new-rank-list">
         {list.map((item, key) => (
@@ -43,8 +45,8 @@ export default ({ ranklist, user, show, setShow }) => {
             className="new-rank-item"
             key={key}
           >
-            <img className="new-rank-item-avatar" src={item.avatar} alt="" />
-            <div className="new-rank-item-name">{item.name}</div>
+            <img className="new-rank-item-avatar" src={imageChallenger} alt="" />
+            <div className="new-rank-item-name">PDL - {item.leaguePoints} - {item.name}</div>
           </div>
         ))}
       </div>

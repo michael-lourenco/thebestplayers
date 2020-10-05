@@ -42,7 +42,30 @@ async function getOnlyFirstWorldRankSolo5x5() {
   return allFirstOfWorld;
 }
 
-const get = async (req, res) => {
+async function getOnlyFirstBrRankSolo5x5() {
+  const allBr =  await fetch(
+      `https://br1.${process.env.API_BASE_URL}/lol/league-exp/v4/entries/RANKED_SOLO_5x5/CHALLENGER/I?page=1&api_key=${process.env.API_KEY}`
+    )
+      .then(toJson)
+      .then(myMap(extractSummonerNameAndLeaguePoints))
+      .then((first) => {
+        return {...first
+        };
+      });
+    let allFirst3Br=[];
+      for (let i=0;i<=2;i++){
+      allFirst3Br.push(allBr[i])
+    }
+    // const arrayDez = Object.entries(allBr).slice(0,10)
+
+    // const allFirst10Br = arrayDez.map(item=>{
+    //  return item
+    // })
+  return allFirst3Br;
+  
+}
+
+const getOnlyFirstWorldRank = async (req, res) => {
   const getRank = await getOnlyFirstWorldRankSolo5x5();
   const payload = [];
   for (let i = 0; i < getRank.length; i++) {
@@ -56,6 +79,14 @@ const get = async (req, res) => {
   res.send(JSON.stringify(payload));
 };
 
+const getOnlyFirstBrRank = async (req, res) => {
+  const payload = await getOnlyFirstBrRankSolo5x5();
+
+  console.log(payload);
+  res.send(JSON.stringify(payload));
+};
+
 module.exports = {
-  get,
+  getOnlyFirstWorldRank,
+  getOnlyFirstBrRank
 };

@@ -1,7 +1,6 @@
 .new-rank {
-    width: 35%;
-    max-width: 415px;
-    position: fixed;
+    width: 100%;
+    display: flex;
     left: 0;
     top: 0;
     bottom: 0;
@@ -10,6 +9,15 @@
     flex-direction: column;
     border-right: 1px solid #ddd;
     transition: all ease 0.5s;
+}
+.new-rank{
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-bottom: 6px solid #4adf83;
 }
 
 .new-rank-head {

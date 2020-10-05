@@ -1,22 +1,22 @@
 import React from "react";
 import "./ChatIntro.css";
-import getRanks from '../ApiRiot';
+import updateRanks from '../ApiRiot';
 
 
-getRanks()
+//updateRanks()
 
 export default () => {
   return (
     <div className="chatIntro">
       <img
-        src="https://web.whatsapp.com/img/intro-connection-light_c98cc75f2aa905314d74375a975d2cf2.jpg"
+        src="https://www.pinnacle.com/Cms_Data/Contents/Guest/Media/esports2017/Article-Images/LoL/2018-Worlds-Final/article-esports-lol-championship-2018-hero.jpg"
         alt=""
       />
-      <h1>Mantenha seu celular conectado</h1>
+      <h1>The Best Players</h1>
       <h2>
-        O WhatsApp conecta ao seu telefone para sincronizar suas mensagens. Para
-        reduzir o uso de dados, concecte seu telefone a uma rede Wi-fi
+      Temos como objetivo incentivar os jogadores da Solo Queue BR a se empenharem ao máximo, de forma que o cenário melhore como um todo.
       </h2>
+      <p>Obs: Este é apenas um conteúdo de estudos, não tem nenhum vinculo com a Riot ou qualquer empresa ligada ao LOL.</p>
     </div>
   );
 };

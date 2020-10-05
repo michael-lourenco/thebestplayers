@@ -1,9 +1,13 @@
 .rankListItem {
+    background-color: #f8f9fa;
     display: flex;
-    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    height: 70px;
+    height: 100%;
+    border-bottom: 6px solid #4adf83;
 }
+
 
 .rankListItem:hover {
     background-color: #f5f5f5;

@@ -1,3 +1,64 @@
+# THE BEST PLAYERS
+
+Esta iniciativa sugiu após várias discussões que aconteceram por pessoas da comunidade de LOL do Brasil, sobre como ajudar ativamente no desenvolvimento do cenário.
+
+## OBJETIVO
+
+Temos como objetivo incentivar os jogadores da Solo Queue a se emprenharem em ser os melhores do servidor brasileiro, de forma que o cenário melhore como um todo
+
+## COMO ISSO VAI ACONTECER
+
+## PREMIOS MENSAIS
+
+Os 3 melhores jogadores do servidor no mês, receberão um prêmio em dinheiro.
+
+## PREMIOS ANUAIS
+
+O 3 melhores jogadores do ano, receberão um prêmio em dinheiro
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
