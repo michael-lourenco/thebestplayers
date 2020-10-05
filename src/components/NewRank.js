@@ -33,6 +33,8 @@ export default ({ ranklist, user, show, setShow }) => {
   return (
     <div className="new-rank">
       <div className="new-rank-head">
+        <p>data</p>
+        <p>pote</p>
         <div onClick={handleClose} className="new-rank-backbutton">
           <ArrowBackIcon style={{ color: "#fff" }} />
         </div>
