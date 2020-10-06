@@ -6,9 +6,10 @@ const updateRanks = async () => {
   const data = await fetch(`${process.env.REACT_APP_BASE_URL_API_RIOT}/br`);
   const result = await data.json();
   console.log('resultado',JSON.stringify(result))
-  for(let item of result){
-      Api.addRank(item)
-      console.log(item)
+  for(let i=0;i<=result.length;i++){
+      result[i].position=i+1;
+      Api.addRank(result[i])
+      console.log(result[i])
   }
   return result;
 };

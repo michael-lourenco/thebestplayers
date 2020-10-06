@@ -143,6 +143,7 @@ export default {
     }
   },
   addRank: async (u) => {
+    
     let now = new Date();
     await db.collection("rank").doc(u.summonerId).set(
       {
@@ -152,13 +153,14 @@ export default {
         losses: u.losses,
         queueType: u.queueType,
         rank: u.rank,
-        // region: u.region,
         summonerId: u.summonerId,
-        summonerName: u.summonerId,
+        summonerName: u.summonerName,
         tier: u.tier,
         veteran: u.veteran,
         wins: u.wins,
         date: now,
+        position:u.position,
+
       },
       { merge: true }
     );
@@ -178,13 +180,14 @@ export default {
           losses: data.losses,
           queueType: data.queueType,
           rank: data.rank,
-          // region: data.region,
           summonerId: data.summonerId,
           summonerName: data.summonerName,
           tier: data.tier,
           veteran: data.veteran,
           wins: data.wins,
           date: data.date,
+          position:data.position,
+
         });
       
     });

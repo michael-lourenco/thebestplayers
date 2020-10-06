@@ -25,7 +25,6 @@ function extractSummonerNameAndLeaguePoints(item) {
   return item;
 }
 
-
 async function getOnlyFirstWorldRankSolo5x5() {
   const allFirstOfWorld = REGION_URL.map((item) => {
     return fetch(
@@ -34,35 +33,29 @@ async function getOnlyFirstWorldRankSolo5x5() {
       .then(toJson)
       .then(myMap(extractSummonerNameAndLeaguePoints))
       .then((first) => {
-        return {...first[0],
-                region:item
-        };
+        return { ...first[0], region: item };
       });
   });
   return allFirstOfWorld;
 }
 
 async function getOnlyFirstBrRankSolo5x5() {
-  const allBr =  await fetch(
-      `https://br1.${process.env.API_BASE_URL}/lol/league-exp/v4/entries/RANKED_SOLO_5x5/CHALLENGER/I?page=1&api_key=${process.env.API_KEY}`
-    )
-      .then(toJson)
-      .then(myMap(extractSummonerNameAndLeaguePoints))
-      .then((first) => {
-        return {...first
-        };
-      });
-    let allFirst3Br=[];
-      for (let i=0;i<=2;i++){
-      allFirst3Br.push(allBr[i])
-    }
-    // const arrayDez = Object.entries(allBr).slice(0,10)
+  const allBr = await fetch(
+    `https://br1.${process.env.API_BASE_URL}/lol/league-exp/v4/entries/RANKED_SOLO_5x5/CHALLENGER/I?page=1&api_key=${process.env.API_KEY}`
+  )
+    .then(toJson)
+    .then(myMap(extractSummonerNameAndLeaguePoints))
+    .then((first) => {
+      return { ...first };
+    });
+  let allFirst3Br = [];
+  for (let i = 0; i <= 2; i++) {
+    // allBr[i].positon=i+1;
+    // console.log(`${i} -${allBr[i]}`)
+    allFirst3Br.push(allBr[i]);
+  }
 
-    // const allFirst10Br = arrayDez.map(item=>{
-    //  return item
-    // })
   return allFirst3Br;
-  
 }
 
 const getOnlyFirstWorldRank = async (req, res) => {
@@ -71,6 +64,7 @@ const getOnlyFirstWorldRank = async (req, res) => {
   for (let i = 0; i < getRank.length; i++) {
     console.log("RANK LENGHT", getRank.length);
     const player = await getRank[i];
+    player.positon = i + 1;
     console.log("RANK", player);
     payload.push(player);
   }
@@ -88,5 +82,5 @@ const getOnlyFirstBrRank = async (req, res) => {
 
 module.exports = {
   getOnlyFirstWorldRank,
-  getOnlyFirstBrRank
+  getOnlyFirstBrRank,
 };

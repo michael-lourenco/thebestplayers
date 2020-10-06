@@ -48,7 +48,7 @@ export default ({ ranklist, user, show, setShow }) => {
             key={key}
           >
             <img className="new-rank-item-avatar" src={imageChallenger} alt="" />
-            <div className="new-rank-item-name">PDL - {item.leaguePoints} - {item.name}</div>
+            <div className="new-rank-item-name">{item.position} - LP - {item.leaguePoints} - {item.name}</div>
           </div>
         ))}
       </div>
