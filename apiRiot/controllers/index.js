@@ -77,7 +77,7 @@ const getOnlyFirstBrRank = async (req, res) => {
   const payload = await getOnlyFirstBrRankSolo5x5();
 
   console.log(payload);
-  res.send(JSON.stringify(payload));
+  res.send(payload);
 };
 
 module.exports = {
